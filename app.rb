@@ -20,7 +20,10 @@ get '/' do
     session[:hangman] = Hangman.new
   end
 
-  msg = "No more attempt... You lost." unless session[:hangman].has_more_attempt?
+  unless session[:hangman].has_more_attempt?
+    word = session[:hangman].word.join('')
+    msg = "You lost. The word was #{word}"
+  end
   msg = "Grats. You won." unless session[:hangman].not_win?
 
   session[:hangman].guess(params['guess']) if params['guess'] =~ /^([a-z]|[A-Z])$/ && msg.nil?
