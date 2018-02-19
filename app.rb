@@ -11,5 +11,5 @@ configure do
 end
 
 get '/' do
-    erb :index, :locals => { word: "Hello, Hangman..." }
+  erb :index, locals: { word: '_ _ _ _ _ _ D _ _', turns_left: 'chalkboard', incorrect_letters: 'a,b,c,s' }
 end

@@ -1,3 +1,24 @@
-<p>
-  <%= word %>
-</p>
+<div id="main">
+
+  <div id="image">
+    <img src="images/<%= turns_left %>.jpg" alt="Hangman" height="450" width="600">
+  </div>
+
+  <div id="word">
+    <%= word %>
+  </div>
+  <div class="turns_left">
+    <%= turns_left %>
+    turns left
+  </div>
+
+  <div class="incorrect_letters">
+    <h3>
+      Incorrect letters
+    </h3>
+    <p>
+      <%= incorrect_letters %>
+    </p>
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+body {
+  background-color: #ddd;
+  text-align: center;
+}
+
+p, h3 {
+  margin: 0;
+}
+
+div {
+  margin: 2px;
+}
+
+#image {
+  margin-bottom: 15px;
+}
