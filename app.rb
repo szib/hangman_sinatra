@@ -10,6 +10,11 @@ configure do
   enable :sessions
 end
 
+get '/new_game' do
+  session[:hangman] = Hangman.new
+  redirect to('/')
+end
+
 get '/' do
   msg = nil
   if session[:hangman].nil?
@@ -19,8 +24,12 @@ get '/' do
   msg = "No more attempt... You lost." unless session[:hangman].has_more_attempt?
   msg = "Grats. You won." unless session[:hangman].not_win?
 
-  session[:hangman].guess(params['guess']) if params['guess'] =~ /^([a-z]|[A-Z])$/
+  session[:hangman].guess(params['guess']) if params['guess'] =~ /^([a-z]|[A-Z])$/ && msg.nil?
 
-  puts session.inspect
-  erb :index, locals: { word: '_ _ _ _ _ _ D _ _', msg: msg, turns_left: 'chalkboard', incorrect_letters: 'a,b,c,s' }
+  word = session[:hangman].word_mask.join(' ')
+  turns_left = session[:hangman].remaining_attempts.to_s
+  guessed_letters = session[:hangman].guessed_letters.join(', ')
+
+  # puts session.inspect 
+  erb :index, locals: { word: word, msg: msg, turns_left: turns_left, guessed_letters: guessed_letters }
 end

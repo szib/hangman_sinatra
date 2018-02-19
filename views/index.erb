@@ -1,11 +1,17 @@
 <div id="main">
+    
+  <% unless msg.nil? %>
+  <div class="msg">
+    <%= msg %>
+  </div>
+  <% end %>
 
   <div id="image">
     <img src="images/<%= turns_left %>.jpg" alt="Hangman" height="450" width="600">
   </div>
 
   <div class="form">
-    <form>
+    <form action="/">
       <label>Guess a letter:</label>
       <input type="text" name="guess" autofocus="autofocus" />
       <input type="submit" value="OK" />
@@ -20,19 +26,17 @@
     turns left
   </div>
 
-  <div class="incorrect_letters">
+  <div class="guessed_letters">
     <h3>
-      Incorrect letters
+      Guessed letters
     </h3>
     <p>
-      <%= incorrect_letters %>
+      <%= guessed_letters %>
     </p>
   </div>
 
-  <% unless msg.nil? %>
-    <div class="msg">
-      <%= msg %>
-    </div>
-  <% end %>
+  <div class="new_game">
+    <a href="/new_game">New game</a>
+  </div>
 
 </div>
