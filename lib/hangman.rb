@@ -1,7 +1,7 @@
 require 'json'
 
 class Hangman
-  attr_reader :remaining_attempts, :word
+  attr_reader :remaining_attempts, :word, :word_mask, :guessed_letters
 
   def initialize(remaining_attempts = 12)
     @word = random_word.upcase.split('')
