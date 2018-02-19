@@ -25,10 +25,10 @@ get '/' do
 
   session[:hangman].guess(params['guess']) if params['guess'] =~ /^([a-z]|[A-Z])$/ && msg.nil?
 
-  word = session[:hangman].word_mask.join(' ')
+  word_mask = session[:hangman].word_mask.join(' ')
   turns_left = session[:hangman].remaining_attempts.to_s
   guessed_letters = session[:hangman].guessed_letters.join(', ')
 
   # puts session.inspect
-  erb :index, locals: { word: word, msg: msg, turns_left: turns_left, guessed_letters: guessed_letters }
+  erb :index, locals: { word_mask: word_mask, msg: msg, turns_left: turns_left, guessed_letters: guessed_letters }
 end
