@@ -1,20 +1,20 @@
 <div id="main">
-    
+
   <% unless msg.nil? %>
-  <div class="msg">
-    <%= msg %>
-  </div>
+    <div class="msg">
+      <%= msg %>
+    </div>
   <% end %>
 
   <div id="image">
-    <img src="images/<%= turns_left %>.jpg" alt="Hangman" height="450" width="600">
+    <img src="images/<%= turns_left %>.jpg" alt="<%= turns_left %> turns left" height="400" width="600">
   </div>
 
   <div class="form">
     <form action="/">
       <label>Guess a letter:</label>
-      <input type="text" name="guess" autofocus="autofocus" />
-      <input type="submit" value="OK" />
+      <input type="text" name="guess" autofocus="autofocus"/>
+      <input type="submit" value="OK"/>
     </form>
   </div>
 
