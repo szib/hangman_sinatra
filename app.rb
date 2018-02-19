@@ -2,7 +2,6 @@ require 'sinatra'
 require_relative 'lib/hangman'
 
 if development?
-  require 'dotenv'
   require 'sinatra/reloader'
 end
 
@@ -30,6 +29,6 @@ get '/' do
   turns_left = session[:hangman].remaining_attempts.to_s
   guessed_letters = session[:hangman].guessed_letters.join(', ')
 
-  # puts session.inspect 
+  # puts session.inspect
   erb :index, locals: { word: word, msg: msg, turns_left: turns_left, guessed_letters: guessed_letters }
 end

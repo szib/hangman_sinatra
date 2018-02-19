@@ -5,5 +5,4 @@ gem 'json'
 
 group :development, :test do
   gem 'sinatra-contrib'
-  gem 'dotenv'
 end
