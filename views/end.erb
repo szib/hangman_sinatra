@@ -1,0 +1,24 @@
+<div class="container">
+
+  <% if result == 'lost' %>
+    <H1>You lost. The word was <%= word %>.</H1>
+    <div class="image">
+      <img src="/images/0.jpg" alt="You lost" height="450" width="600">
+    </div>
+  <% end %>
+
+  <% if result == 'won' %>
+    <H1>You won. Here's a bloddy kitten... Enjoy. Btw the word was <%= word %>.</H1>
+    <div class="image">
+      <img src="/images/won.jpg" alt="You won. Here's a bloddy kitten... Enjoy." height="450" width="600">
+    </div>
+  <% end %>
+
+
+
+
+  <div class="new_game">
+    <a class="btn" href="/new_game">New game</a>
+  </div>
+
+</div>

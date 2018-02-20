@@ -15,6 +15,12 @@ class Hangman
     puts "\nGuessed letters: #{@guessed_letters.join(', ')}\n"
   end
 
+  def game_over?
+    return true if @word == @word_mask
+    return true unless has_more_attempt?
+    false
+  end
+
   def not_win?
     @word != @word_mask
   end
