@@ -1,4 +1,4 @@
-<div id="main">
+<div class="container">
 
   <% unless msg.nil? %>
     <div class="msg">
@@ -6,37 +6,45 @@
     </div>
   <% end %>
 
-  <div id="image">
+  <div class="image">
     <img src="images/<%= turns_left %>.jpg" alt="<%= turns_left %> turns left" height="400" width="600">
   </div>
 
-  <div class="form">
-    <form action="/">
-      <label>Guess a letter:</label>
-      <input type="text" name="guess" autofocus="autofocus"/>
-      <input type="submit" value="OK"/>
-    </form>
-  </div>
+  <div class="dashboard">
 
-  <div id="word_mask">
-    <%= word_mask %>
-  </div>
-  <div class="turns_left">
-    <%= turns_left %>
-    turns left
-  </div>
+    <div class="left">
+      <div class="word_mask">
+        <%= word_mask %>
+      </div>
+      <div class="turns_left">
+        <%= turns_left %>
+        turns left
+      </div>
+      <div class="form">
+        <form action="/">
+          <label>Guess a letter:</label>
+          <input class="input" type="text" name="guess" autofocus="autofocus"/>
+          <input class="btn" type="submit" value="OK"/>
+        </form>
+      </div>
+    </div>
 
-  <div class="guessed_letters">
-    <h3>
-      Guessed letters
-    </h3>
-    <p>
-      <%= guessed_letters %>
-    </p>
-  </div>
+    <div class="right">
 
-  <div class="new_game">
-    <a href="/new_game">New game</a>
+      <div class="guessed_letters">
+        <h3>
+          Guessed letters
+        </h3>
+        <p>
+          <%= guessed_letters %>
+        </p>
+      </div>
+
+      <div class="new_game">
+        <a class="btn" href="/new_game">New game</a>
+      </div>
+    </div>
+
   </div>
 
 </div>
